@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        /**
+         * let
+         * @type {number}
+         */
+        // 变量提升
+        var number = 10;
+
+        function add() {
+            var number ; // undefined
+
+            // add 下面的 局部作用域
+            console.log(number); //  undifiend 输出的add里面的number
+
+            var number = 5;
+            console.log(5); // 5
+
+            // 使用let 因为1： 全局污染
+            var Date = "aaa";
+            console.log(window.Date);
+
+
+            // 使用 let 因为2： for中var i是全局作用域，改成let作用域在for里
+            for(var i=0; i<10; i++){
+
+            }
+            console.log(i);  // 居然可以访问到 i
+
+
+            /**
+             * const 常量  语法上防止更改
+             */
+            console.log(PI);
+            var PI = 3.14;
+            PI = 5;
+
+            const PI = 3.14;
+            //PI = 3.14;  此时PI不可更改
+
+            const person = {
+                name : 'jack'
+            }
+
+            /*
+            person = {
+                name : "stan"
+            }
+            */
+            person.name = "amy"; // 可以更改属性，不可更改对象
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

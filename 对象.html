@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        /*
+        对象简写
+         */
+        var a = 5;
+        var obj = {
+            a,
+            b() {
+                console.log(this.a);
+            }
+        }
+
+        obj.b();
+
+        if (Object.is(NaN, NaN)){
+            console.log("成立")
+        }else{
+            console.log("不成立")
+        }
+
+        // Object assign 对象何并
+        var obj1 = {
+            c:"lalal",
+            a:20
+        }
+
+        console.log(Object.assign(obj, obj1));
+
+
+        // 双向数据绑定
+        var data = {};
+        Object.defineProperties(data, "b", {
+           value : 10,
+            writable:true,  // 默认属性不可写
+
+            set(newvalue){
+               console.log("set里面的打印："+ newvalue)
+            },
+
+            get(newvalue){
+                return newvalue
+            }
+        })
+        data.b = 50;
+        console.log(data.b);
+
+        for (item in data){
+            console.log(item);
+        }
+
+        // 枚举 同for in
+        Object.keys(obj1);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

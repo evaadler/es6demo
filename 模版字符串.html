@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <input id="txtname"/>
+    <input id="txtcontent"/>
+    <button id="btnsubmit">提交</button>
+
+    <div id = "box"></div>
+
+<script>
+    var txt1 = document.getElementById("txtname");
+    var txt2 = document.getElementById("txtcontent");
+    var btn = document.getElementById("btnsubmit");
+    var box = document.getElementById("box");
+
+    btn.onclick = function () {
+        var liobj = document.createElement("li");
+
+        //liobj.innerHTML = "<p>"+ txt2.value+"</p><a>"+txt1.value+"</a>"
+        liobj.innerHTML = `<p>${txt2.value}</p><a>${txt1.value}</a>`;// NOTE 注意不是引号
+        box.appendChild(liobj);
+    }
+
+
+</script>
+
+</body>
+</html>

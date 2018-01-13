@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        // 之前
+        function Person(name, sex) {
+            this.name = name;
+            this.set = sex;
+            this.showname= function () {
+                alert(this.name);
+            }
+
+
+        }
+
+        var p1 = new Person("zhangsan", "man");
+        p1.showname();
+
+        // ES6
+        class Person1{
+            //构造函数
+            constructor(name, sex){
+                this.name = name;
+                this.sex = sex;
+            }
+            // 实例方法
+            showname(){
+                alert(this.name);
+            }
+
+            // 静态方法
+            static getsex(){
+                return "ddddd"
+            }
+        }
+
+        var p2 = new Person("zhangsan", "man");
+        p1.showname();
+
+        Person1.getsex();
+
+        // 之前继承
+        function parent(name, sex, password) {
+            Person.call(this, name, sex);
+            this.password(password);
+        }
+
+        var p2 = new parent("zhangsan","ss","123");
+        p2.showname();
+
+        // 新的继承
+        class student extends Person1{
+            constructor(name,sex,password){
+                super(name,sex);// 继承父类
+                this.password = password;
+            }
+        }
+
+        var p3 = new student("ss","dd","dd");
+        p3.showname();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        // NOTE 单行箭头函数
+        var add = (a, b=8) => a+b;
+        console.log(add(1));
+
+        // NOTE 多行箭头函数
+        var add1 = (a,b=8) => {
+            console.log(555);
+            return a+b;
+        }
+
+        console.log(add1(4));
+
+        var obj = {
+            a:5,
+            func : function () {
+                console.log(this.a);
+            },
+
+            test: function () {
+                setTimeout(function () {
+                    console.log(this);  // this 指向的window，所以下面的this.func()调用报错
+                    this.func();
+                }, 1)
+            },
+
+            // 改为：
+            test1:function () {
+                setTimeout(()=>{
+                    this.func();
+                }, 1)
+            }
+        }
+
+        obj.test();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
